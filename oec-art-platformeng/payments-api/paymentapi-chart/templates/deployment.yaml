@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paymentapi-deployment
+  labels:
+    app: paymentapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: paymentapi
+  template:
+    metadata:
+      labels:
+        app: paymentapi
+    spec:
+      containers:
+        - name: paymentapi-container
+          image: nandhu26/payment-api-image:latest
+          ports:
+            - containerPort: 80
+

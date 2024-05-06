@@ -1,0 +1,16 @@
+# Stage 1: Build the React application
+FROM node:18-alpine AS build
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY . .
+
+# Install dependencies
+RUN npm install
+
+# Build the application
+RUN npm run build
+EXPOSE 3000
+CMD ["npm","start"]
